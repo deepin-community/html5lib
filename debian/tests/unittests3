@@ -1,0 +1,14 @@
+#!/bin/sh
+set -efu
+
+pys="$(py3versions -r 2> /dev/null)"
+
+cp -a pytest.ini .pytest.expect "$AUTOPKGTEST_TMP"
+mkdir "$AUTOPKGTEST_TMP/html5lib"
+cp -a html5lib/tests "$AUTOPKGTEST_TMP/html5lib"
+cd "$AUTOPKGTEST_TMP"
+
+for py in $pys; do
+	echo "=== $py ==="
+	$py -m pytest html5lib/tests/
+done

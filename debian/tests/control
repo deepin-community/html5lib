@@ -1,0 +1,11 @@
+Tests: unittests3
+Depends: python3-all,
+         python3-genshi,
+         python3-html5lib,
+         python3-lxml,
+         python3-mock,
+         python3-pytest,
+         python3-pytest-expect,
+         python3-setuptools,
+         python3-six,
+         python3-webencodings,

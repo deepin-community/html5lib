@@ -1,0 +1,34 @@
+Source: html5lib
+Section: python
+Priority: optional
+Maintainer: Sandro Tosi <morph@debian.org>
+Uploaders: Debian Python Team <team+python@tracker.debian.org>
+Build-Depends: debhelper-compat (= 12),
+               dh-python,
+               python3-all,
+               python3-genshi,
+               python3-lxml,
+               python3-mock,
+               python3-pytest,
+               python3-pytest-expect,
+               python3-setuptools,
+               python3-six,
+               python3-webencodings,
+Vcs-Git: https://salsa.debian.org/python-team/packages/html5lib.git
+Vcs-Browser: https://salsa.debian.org/python-team/packages/html5lib
+Homepage: https://github.com/html5lib/html5lib-python
+Standards-Version: 4.5.0
+Rules-Requires-Root: no
+
+Package: python3-html5lib
+Architecture: all
+Depends: ${misc:Depends},
+         ${python3:Depends},
+Suggests: python3-genshi,
+          python3-lxml,
+Description: HTML parser/tokenizer based on the WHATWG HTML5 specification
+ html5lib is a pure-python library for parsing HTML. It is designed to
+ conform to the HTML 5 specification, which has formalized the error handling
+ algorithms of popular web browsers.
+ .
+ This package contains the Python 3 version of html5lib.
