@@ -1,4 +1,3 @@
-from __future__ import absolute_import, division, unicode_literals
 
 import os
 import json
@@ -74,7 +73,7 @@ class JsonWalker(TreeWalker):
         attrs = {}
         for attrib in attribs:
             name = (attrib["namespace"], attrib["name"])
-            assert(name not in attrs)
+            assert name not in attrs
             attrs[name] = attrib["value"]
         return attrs
 

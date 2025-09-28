@@ -1,4 +1,3 @@
-from __future__ import absolute_import, division, unicode_literals
 
 # pylint:disable=wrong-import-position
 
@@ -8,7 +7,7 @@ import codecs
 import glob
 import xml.sax.handler
 
-base_path = os.path.split(__file__)[0]
+base_path = os.path.dirname(__file__)
 
 test_dir = os.path.join(base_path, 'testdata')
 sys.path.insert(0, os.path.abspath(os.path.join(base_path,
@@ -86,7 +85,7 @@ class DefaultDict(dict):
         return dict.get(self, key, self.default)
 
 
-class TestData(object):
+class TestData:
     def __init__(self, filename, newTestHeading="data", encoding="utf8"):
         if encoding is None:
             self.f = open(filename, mode="rb")

@@ -1,4 +1,3 @@
-from __future__ import absolute_import, division, unicode_literals
 
 import sys
 import os
@@ -25,11 +24,11 @@ def main(out_path):
 
 def run_file(filename, out_path):
     try:
-        tests_data = json.load(open(filename, "r"))
+        tests_data = json.load(open(filename))
     except ValueError:
         sys.stderr.write("Failed to load %s\n" % filename)
         return
-    name = os.path.splitext(os.path.split(filename)[1])[0]
+    name = os.path.splitext(os.path.basename(filename))[0]
     output_file = open(os.path.join(out_path, "tokenizer_%s.dat" % name), "w")
 
     if 'tests' in tests_data:
