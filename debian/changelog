@@ -1,3 +1,56 @@
+html5lib (1.2-2) unstable; urgency=medium
+
+  * Team upload
+  * Only Build-Depend on pytest for tests
+
+ -- Bastian Germann <bage@debian.org>  Mon, 24 Mar 2025 07:25:58 +0100
+
+html5lib (1.2-1) unstable; urgency=medium
+
+  * Team Upload
+  * New upstream version 1.2
+  * Switch to maintenance fork.
+  * Remove old patches
+  * Devendor webencodings from new fork.
+  * Remove depedency on python3-mock & python3-six
+
+ -- Alexandre Detiste <tchet@debian.org>  Sun, 29 Sep 2024 14:12:00 +0200
+
+html5lib (1.1-6) unstable; urgency=low
+
+  * Set myself as uploader (Closes: #1065142).
+  * Add debian/gbp.conf.
+  * Run wrap-and-sort -bast to reduce diff size of future changes.
+  * Use dh-sequence-python3.
+  * Bump Standards-Version to 4.6.2.
+  * Use uscan version 4.
+  * Convert d/copyright to DEP-5 format.
+  * Update year in d/copyright.
+  * Test supported Python versions in autopkgtest.
+
+ -- Michael Fladischer <fladi@debian.org>  Fri, 15 Mar 2024 23:47:39 +0000
+
+html5lib (1.1-5) unstable; urgency=medium
+
+  * QA upload.
+  * debian/patches/0003-Fix-pytest-7.x-fspath-deprecation-error.patch:
+    Fix build failure by applying further patch on pytest 7.x compatibility.
+
+ -- Boyuan Yang <byang@debian.org>  Sat, 09 Mar 2024 23:49:10 -0500
+
+html5lib (1.1-4) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Bump debhelper from old 12 to 13.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Name, Repository,
+    Repository-Browse.
+  * Update standards version to 4.6.1, no changes needed.
+
+  [ Sandro Tosi ]
+  * orphan
+
+ -- Sandro Tosi <morph@debian.org>  Fri, 01 Mar 2024 01:14:33 -0500
+
 html5lib (1.1-3) unstable; urgency=medium
 
   [ Ondřej Nový ]

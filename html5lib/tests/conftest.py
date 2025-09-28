@@ -1,4 +1,3 @@
-from __future__ import print_function
 import os.path
 import sys
 
@@ -54,7 +53,7 @@ def pytest_configure(config):
         # Check for optional requirements
         req_file = os.path.join(_root, "requirements-optional.txt")
         if os.path.exists(req_file):
-            with open(req_file, "r") as fp:
+            with open(req_file) as fp:
                 for line in fp:
                     if (line.strip() and
                         not (line.startswith("-r") or
@@ -79,7 +78,7 @@ def pytest_configure(config):
         import xml.etree.ElementTree as ElementTree
 
         try:
-            import xml.etree.cElementTree as cElementTree
+            import xml.etree.ElementTree as cElementTree
         except ImportError:
             msgs.append("cElementTree unable to be imported")
         else:
@@ -99,10 +98,19 @@ def pytest_collect_file(path, parent):
 
     if _tree_construction in dir_and_parents:
         if path.ext == ".dat":
-            return TreeConstructionFile(path, parent)
+            return TreeConstructionFile.from_parent(parent, fspath=path)
     elif _tokenizer in dir_and_parents:
         if path.ext == ".test":
-            return TokenizerFile(path, parent)
+            return TokenizerFile.from_parent(parent, fspath=path)
     elif _sanitizer_testdata in dir_and_parents:
         if path.ext == ".dat":
-            return SanitizerFile(path, parent)
+            return SanitizerFile.from_parent(parent, fspath=path)
+
+
+# Tiny wrapper to allow .from_parent constructors on older pytest for PY27
+if not hasattr(pytest.Item.__base__, "from_parent"):
+    @classmethod
+    def from_parent(cls, parent, **kwargs):
+        return cls(parent=parent, **kwargs)
+
+    pytest.Item.__base__.from_parent = from_parent

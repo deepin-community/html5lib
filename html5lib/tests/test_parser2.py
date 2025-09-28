@@ -1,7 +1,3 @@
-from __future__ import absolute_import, division, unicode_literals
-
-from six import PY2, text_type
-
 import io
 
 from . import support  # noqa
@@ -68,17 +64,11 @@ def test_debug_log():
                 ('dataState', 'InBodyPhase', 'InBodyPhase', 'processStartTag', {'name': 'p', 'type': 'StartTag'}),
                 ('dataState', 'InBodyPhase', 'InBodyPhase', 'processCharacters', {'type': 'Characters'}),
                 ('dataState', 'InBodyPhase', 'InBodyPhase', 'processStartTag', {'name': 'script', 'type': 'StartTag'}),
-                ('dataState', 'InBodyPhase', 'InHeadPhase', 'processStartTag', {'name': 'script', 'type': 'StartTag'}),
                 ('scriptDataState', 'TextPhase', 'TextPhase', 'processCharacters', {'type': 'Characters'}),
                 ('dataState', 'TextPhase', 'TextPhase', 'processEndTag', {'name': 'script', 'type': 'EndTag'}),
                 ('dataState', 'InBodyPhase', 'InBodyPhase', 'processCharacters', {'type': 'Characters'}),
                 ('dataState', 'InBodyPhase', 'InBodyPhase', 'processEndTag', {'name': 'p', 'type': 'EndTag'}),
                 ('dataState', 'InBodyPhase', 'InBodyPhase', 'processCharacters', {'type': 'Characters'})]
-
-    if PY2:
-        for i, log in enumerate(expected):
-            log = [x.encode("ascii") if isinstance(x, text_type) else x for x in log]
-            expected[i] = tuple(log)
 
     assert parser.log == expected
 

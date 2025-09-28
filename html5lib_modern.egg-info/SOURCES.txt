@@ -4,7 +4,9 @@ CHANGES.rst
 LICENSE
 MANIFEST.in
 README.rst
+pyproject.toml
 pytest.ini
+requirements-oldest.txt
 requirements-optional.txt
 requirements-test.txt
 requirements.txt
@@ -19,14 +21,15 @@ html5lib/_utils.py
 html5lib/constants.py
 html5lib/html5parser.py
 html5lib/serializer.py
-html5lib.egg-info/PKG-INFO
-html5lib.egg-info/SOURCES.txt
-html5lib.egg-info/dependency_links.txt
-html5lib.egg-info/requires.txt
-html5lib.egg-info/top_level.txt
 html5lib/_trie/__init__.py
 html5lib/_trie/_base.py
 html5lib/_trie/py.py
+html5lib/contrib/__init__.py
+html5lib/contrib/webencodings/__init__.py
+html5lib/contrib/webencodings/labels.py
+html5lib/contrib/webencodings/mklabels.py
+html5lib/contrib/webencodings/tests.py
+html5lib/contrib/webencodings/x_user_defined.py
 html5lib/filters/__init__.py
 html5lib/filters/alphabeticalattributes.py
 html5lib/filters/base.py
@@ -62,6 +65,7 @@ html5lib/tests/testdata/encoding/test-yahoo-jp.dat
 html5lib/tests/testdata/encoding/tests1.dat
 html5lib/tests/testdata/encoding/tests2.dat
 html5lib/tests/testdata/encoding/chardet/test_big5.txt
+html5lib/tests/testdata/encoding/scripted/tests1.dat
 html5lib/tests/testdata/serializer/core.test
 html5lib/tests/testdata/serializer/injectmeta.test
 html5lib/tests/testdata/serializer/optionaltags.test
@@ -105,6 +109,7 @@ html5lib/tests/testdata/tree-construction/pending-spec-changes.dat
 html5lib/tests/testdata/tree-construction/plain-text-unsafe.dat
 html5lib/tests/testdata/tree-construction/ruby.dat
 html5lib/tests/testdata/tree-construction/scriptdata01.dat
+html5lib/tests/testdata/tree-construction/svg.dat
 html5lib/tests/testdata/tree-construction/tables01.dat
 html5lib/tests/testdata/tree-construction/template.dat
 html5lib/tests/testdata/tree-construction/tests1.dat
@@ -153,3 +158,8 @@ html5lib/treewalkers/dom.py
 html5lib/treewalkers/etree.py
 html5lib/treewalkers/etree_lxml.py
 html5lib/treewalkers/genshi.py
+html5lib_modern.egg-info/PKG-INFO
+html5lib_modern.egg-info/SOURCES.txt
+html5lib_modern.egg-info/dependency_links.txt
+html5lib_modern.egg-info/requires.txt
+html5lib_modern.egg-info/top_level.txt

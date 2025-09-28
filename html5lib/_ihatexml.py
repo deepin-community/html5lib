@@ -1,4 +1,3 @@
-from __future__ import absolute_import, division, unicode_literals
 
 import re
 import warnings
@@ -104,18 +103,15 @@ def charStringToList(chars):
     charRanges = [item.strip() for item in chars.split(" | ")]
     rv = []
     for item in charRanges:
-        foundMatch = False
         for regexp in (reChar, reCharRange):
             match = regexp.match(item)
             if match is not None:
                 rv.append([hexToInt(item) for item in match.groups()])
                 if len(rv[-1]) == 1:
                     rv[-1] = rv[-1] * 2
-                foundMatch = True
                 break
-        if not foundMatch:
+        else:
             assert len(item) == 1
-
             rv.append([ord(item)] * 2)
     rv = normaliseCharList(rv)
     return rv
@@ -184,7 +180,7 @@ nonXmlNameFirstBMPRegexp = re.compile('[\x00-@\\[-\\^`\\{-\xbf\xd7\xf7\u0132-\u0
 nonPubidCharRegexp = re.compile("[^\x20\x0D\x0Aa-zA-Z0-9\\-'()+,./:=?;!*#@$_%]")
 
 
-class InfosetFilter(object):
+class InfosetFilter:
     replacementRegexp = re.compile(r"U[\dA-F]{5,5}")
 
     def __init__(self,

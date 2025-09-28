@@ -1,7 +1,4 @@
-from __future__ import absolute_import, division, unicode_literals
 # pylint:disable=protected-access
-
-from six import text_type
 
 import re
 
@@ -108,7 +105,7 @@ def getETreeBuilder(ElementTreeImplementation, fullTree=False):
             node.parent = None
 
         def insertText(self, data, insertBefore=None):
-            if not(len(self._element)):
+            if not len(self._element):
                 if not self._element.text:
                     self._element.text = ""
                 self._element.text += data
@@ -201,7 +198,7 @@ def getETreeBuilder(ElementTreeImplementation, fullTree=False):
         rv = []
 
         def serializeElement(element, indent=0):
-            if not(hasattr(element, "tag")):
+            if not hasattr(element, "tag"):
                 element = element.getroot()
             if element.tag == "<!DOCTYPE>":
                 if element.get("publicId") or element.get("systemId"):
@@ -222,7 +219,7 @@ def getETreeBuilder(ElementTreeImplementation, fullTree=False):
             elif element.tag == ElementTreeCommentType:
                 rv.append("|%s<!-- %s -->" % (' ' * indent, element.text))
             else:
-                assert isinstance(element.tag, text_type), \
+                assert isinstance(element.tag, str), \
                     "Expected unicode, got %s, %s" % (type(element.tag), element.tag)
                 nsmatch = tag_regexp.match(element.tag)
 
